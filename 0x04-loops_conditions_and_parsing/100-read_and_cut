@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+#  displays the content of the file /etc/passwd
+#+ only displays the:
+#+ username
+#+ group id
+#+ Shell full path for the user
+
+myfile="/etc/passwd"
+while IFS= read -r line
+do
+    echo "$line" | cut -d":" -f 1,3,6
+done < "$myfile"
