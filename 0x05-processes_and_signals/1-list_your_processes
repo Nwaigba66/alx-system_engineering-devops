@@ -1,7 +1,3 @@
 #!/usr/bin/env bash
-# displays a list of currently running processes
-ps_output=$(ps -eo pid,ppid,user,%cpu,%mem,stat,command --forest)
-
-# Display the formatted process list
-echo "$ps_output"
-
+# displays a list of currently running processes.
+ps auxf
