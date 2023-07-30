@@ -1,0 +1,20 @@
+task 0:   ------------------------------------
+https://imgur.com/zC7OhIC
+
+- Server is a hardware or software that performs a specific task.
+
+- The domain name identifies the IP address into human readable text.
+
+- It is a commercial site with top level domain .com
+- Role of web server:  manages the static content. Provides clients with the webpage (fron end)
+- Role of app server: manages the dynamic content of the web page like the backend database and the code that acts on database. ( it might not interact with a database)
+
+- Role of Database: holds data in question
+- The server  usese http to communicate with clients ???
+- SPOF: ( single point of failure) in this web infrastructure many factors can be raised that create failure like
+    - absence of load balancers working as a cluster
+    - absence of replicata nodes that hold replicated Mysql server
+    - absence of monitoring tool that constantly checks servers for diffrent factors.
+
+- The downtime needed to maintain the systme in case of failure. is to much
+- Since we dont have load balancer it is impossible to scale app our servers. ( if not done will create bottle neck where many clints access a single server)

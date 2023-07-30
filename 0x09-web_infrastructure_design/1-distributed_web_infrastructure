@@ -1,0 +1,21 @@
+task 1: 
+--------------------------------------------------------------------------
+https://imgur.com/NywmBov
+
+- we are adding another server to the distributeion algorithm used by our load balancer is  round robbin:  where the servers are queued one after the other. 
+the load balancer assigns connection to each server on the queue. If the last server on the queue is reached then it will start over from the beginning.
+
+- our load balancer has an Active-Active setup to help it avoid problem if one of the servers fail
+
+- in case of Active-Passive setup all the servers are not active all together increasing the latency time to start another server in case of failure.
+
+- The primary replica of a cluster works in such a way that it decreases the load of reading data from the database by the master database.
+
+- primary node holds the master database, while the replica holds the Replicat database together with web server and app server.
+
+- The SPOF ( single point of failure) on the web infrastracture resides on the Load balances, since we have only one Load balancer where failure of it will
+ result on failure of the whole web infrastructure.
+
+- security issue:  we have no firewall and we are using http  so the infrastructure is not secured, hackers can easily access the server.
+
+- no monitoring tool is implemented:  so resolving connection problems and providing data timely to clients is in question.

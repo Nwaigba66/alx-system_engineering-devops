@@ -1,0 +1,14 @@
+task 2: secured_and 
+https://imgur.com/RXkAA5s
+
+- here we have added firewall: to make the servers more secured
+- we added the monitoring tool to respond to clients request in a timely manners.
+- the traffic is served over https: so that it can be more secured than http
+- at the load balancer the SSL needs to be decrypted
+so as to lift the load on the servers.  if the SSL certificate is not terminated the load on the servers will inclrease ( since they have to decrypt it themselves)
+
+- Slave and Replica data are mandatory so as to decrease the load on the primary node. dispersing the work of read to replicated Mysql database and only doing the write task on the master database.
+
+- the monitoring tool we used is Sumologic
+- QPS(query per second): to measure ours web servers QPS
+     select monitoring tool --> install monitoring agent (data collector) --> Analyes performance --> Investigate Anomalies
