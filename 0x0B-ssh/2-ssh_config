@@ -1,5 +1,5 @@
 Include /etc/ssh/ssh_config.d/*.conf
 
-Host 34.203.77.154
+Host 54.237.24.119
    IdentityFile ~/.ssh/school
     PasswordAuthentication no
