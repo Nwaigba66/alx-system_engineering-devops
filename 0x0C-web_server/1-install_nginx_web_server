@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# this script installs nginx as webserver on ubuntu machine
+
+# install nginx
+sudo apt-get -y update 
+sudo apt-get -y install nginx
+
+# allow firewall connection on HTTP Port 80
+ufw allow 'Nginx HTTP'
+
+# to grant permission on nginx while inside your server
+sudo chown -R "$USER":"$USER" /var/www && sudo chmod -R 755 /var/www
+
+# create index.html to be used at root
+echo "Hello World!" > index.html
+
+# move the index.html to root folder
+mv index.html /var/www/html
+
+# restart nginx
+sudo service nginx restart
