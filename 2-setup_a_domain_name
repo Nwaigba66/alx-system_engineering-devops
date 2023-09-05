@@ -1,0 +1,9 @@
+myschool.tech
+sylvain@ubuntu$
+sylvain@ubuntu$ dig myschool.tech
+
+; <<>> DiG 9.10.6 <<>> myschool.tech
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 26785
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1

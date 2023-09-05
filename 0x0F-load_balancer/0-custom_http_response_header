@@ -36,5 +36,10 @@ printf %s "server {
         }
 }" > /etc/nginx/sites-enabled/default
 
+# Code for http_response_header. Only add it if its not present.
+if ! grep -q 'add_header X-Served-By \$hostname;' /etc/nginx/nginx.conf; then
+    sudo sed -i '/^http {/a \\tadd_header X-Served-By $hostname;' /etc/nginx/nginx.conf
+fi
+
 # restart nginx
 sudo service nginx restart
