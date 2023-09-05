@@ -1,4 +1,4 @@
-# Use Puppet to automate the task of creating a custom HTTP header response
+# This script Use Puppet to automate the task of creating a custom HTTP header response
 
 exec {'update':
   command => '/usr/bin/apt-get update',
@@ -6,7 +6,7 @@ exec {'update':
 -> package {'nginx':
   ensure => 'present',
 }
--> file { 'http_header':
+-> file_line { 'http_header':
   path  => '/etc/nginx/nginx.conf',
   match => 'http {',
   line  => "http {\n\tadd_header X-Served-By \"${hostname}\";",
