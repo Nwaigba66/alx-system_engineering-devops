@@ -42,7 +42,7 @@ server {
   }
 
   location /redirect_me {
-    return 301 "https://www.example.com/your-target-url";
+    return 301 "https://www.example.com/https://github.com/Nwaigba66";
   }
 }
 ',
