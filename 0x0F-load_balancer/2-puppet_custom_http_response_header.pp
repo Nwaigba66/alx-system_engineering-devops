@@ -1,51 +1,16 @@
-# Puppet config for nginx server
+# Use Puppet to automate the task of creating a custom HTTP header response
 
-# install nginx
-package { 'nginx':
-  ensure => installed,
+exec {'update':
+  command => '/usr/bin/apt-get update',
 }
-
-# start the service
-service { 'nginx':
-  ensure => running,
-  enable => true,
+-> package {'nginx':
+  ensure => 'present',
 }
-
-# create the index file with content "Hello World!"
-# and notify the nginx service to restart
-file { '/var/www/html/index.html':
-  ensure  => file,
-  content => "Hello World!\n",
-  require => Package['nginx'],
-  notify  => Service['nginx'],
+-> file { 'http_header':
+  path  => '/etc/nginx/nginx.conf',
+  match => 'http {',
+  line  => "http {\n\tadd_header X-Served-By \"${hostname}\";",
 }
-
-# create the nginx default config with basic settings,
-# a 301 redirect and notify nginx service to restart
-file { '/etc/nginx/sites-available/default':
-  ensure  => file,
-  content => '
-server {
-  listen 80;
-
-  add_header X-Served-By $hostname;
-
-  server_name _;
-
-  root /var/www/html;
-  index index.html index.nginx-debian.html;
-
-  location / {
-    # First attempt to serve request as file, then
-    # as directory, then fall back to displaying a 404.
-    try_files $uri $uri/ =404;
-  }
-
-  location /redirect_me {
-    return 301 "https://www.example.com/https://github.com/Nwaigba66";
-  }
-}
-',
-  require => [File['/var/www/html/index.html'], Package['nginx']],
-  notify  => Service['nginx'],
+-> exec {'run':
+  command => '/usr/sbin/service nginx restart',
 }
