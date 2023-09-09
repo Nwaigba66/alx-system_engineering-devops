@@ -3,18 +3,15 @@
 # Configures subdomains to point to IP Address
 
 # A scripts that retrieve and displays information about a subdomain
-domain information () 
-{
-#!/usr/bin/env bash
-# A script for World wide web <domain> <subdomain>
+domain_information () {
     # Perform DNS lookup for the subdomain under the specified domain
     line=$(dig "$2" "$1" | grep -A1 'ANSWER SECTION:'   | tr '\t' '\n' | tail -2 | tr '\n' ' ' )
     # Extract relevant information and print it
-    echo "$2 $line" | awk '{print "The subdomain " $1 " is a " $2 " record and points to " $3")'
+    echo "$2 $line" | awk '{print "The subdomain " $1 " is a " $2 " record and points to " $3}'
     } 
 
 # check the number of arguments passed to the scripts
-if [ "#" == 1 ]
+if [ "$#" == 1 ]
 then 
     # if there is only one argument,
     # This script will call the domain information function with predefined subdomain names
@@ -22,9 +19,9 @@ then
     domain_information "$1" "lb-o1"
     domain_information "$1" "web-o1"
     domain_information "$1" "web-o2"
-elif  ["$#" == 2 ]
+elif  [ "$#" == 2 ]
 then 
     # If there are two arguments, call the domain information \
     # function with the subdomain name
-    domain _information "$1" "$2"
+    domain_information "$1" "$2"
 fi
