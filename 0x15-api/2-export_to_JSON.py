@@ -34,9 +34,9 @@ def export_todos_to_json(employee_id):
             task_completed_status = todo.get('completed')
             task_title = todo.get('title')
             todos_dict[employee_id].append({
+                "username": username,
                 "task": task_title,
-                "completed": task_completed_status,
-                "username": username
+                "completed": task_completed_status
             })
 
         # Export data to JSON file
