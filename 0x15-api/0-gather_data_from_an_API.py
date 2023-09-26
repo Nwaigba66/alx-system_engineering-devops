@@ -50,8 +50,4 @@ if __name__ == "__main__":
 
     # check if input is an integer
     employee_id = sys.argv[1]
-    if not employee_id.isdigit():
-        print("Usage: python script.py <employee_id>")
-        exit()
-
     get_employee_todos(employee_id)
