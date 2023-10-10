@@ -21,7 +21,3 @@ def number_of_subscribers(subreddit):
         return (data['data']['subscribers'])
     except Exception as e:
         return 0
-
-
-if __name__ == '__main__':
-    print(number_of_subscribers(sys.argv[1]))
