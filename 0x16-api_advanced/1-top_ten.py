@@ -5,7 +5,7 @@ import requests
 
 def top_ten(subreddit):
     """ call redit api """
-    endpoint = f"https://www.reddit.com/r/{subreddit}/hot.json"
+    endpoint = "https://www.reddit.com/r/{}/hot/.json".format(subreddit)"
     headers =:\
         v1.0.0 (by /u/Nwaigba66)"
     }
