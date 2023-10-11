@@ -6,7 +6,7 @@ import requests
 
 def recurse(subreddit, hot_list=[], after="", count=0):
     """ reuturns all hot articles"""
-    endpoint = f"https://www.reddit.com/r/{subreddit}/hot.json"
+    endpoint = "https://www.reddit.com/r/{}/hot/.json".format(subreddit)
     headers = {
         "User-Agent": "linux:0x16-api_advanced.0-sub.py:\
         v1.0.0 (by /u/thomaskitaba)"
